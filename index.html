@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pony Verse – Informatika X-D</title>
+  <meta name="theme-color" content="#efe6ff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..900,100&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ===== HOME ===== -->
+    <section id="home" class="hero">
+      <div class="badge-wrap">
+        <div class="badge">
+          <img src="logo.png" alt="Logo Pony Verse: tanduk unicorn warna-warni dengan bintang dan sayap">
+        </div>
+      </div>
+
+      <h1>
+        <span class="l1">Hai, kami</span>
+        <span class="l2">Pony Verse</span>
+      </h1>
+
+      <p class="lead">
+        Satu kelas, satu semesta kecil. Kami anak Informatika X-D
+        yang membangun proyek ini bareng-bareng,
+        dari kode sampai desain.
+      </p>
+
+      <a href="#design" class="cta">Lihat desain kami</a>
+
+      <ul class="crew">
+        <li class="member m1"><span class="avatar" aria-hidden="true">&lt;/&gt;</span><div><h3>Nama Anggota 1</h3><p>Web Programmer</p></div></li>
+        <li class="member m2"><span class="avatar" aria-hidden="true">▢</span><div><h3>Nama Anggota 2</h3><p>App Programmer</p></div></li>
+        <li class="member m3"><span class="avatar" aria-hidden="true">✎</span><div><h3>Nama Anggota 3</h3><p>Content Writer</p></div></li>
+        <li class="member m4"><span class="avatar" aria-hidden="true">✿</span><div><h3>Nama Anggota 4</h3><p>Graphic Design</p></div></li>
+      </ul>
+    </section>
+
+    <!-- ===== DESIGN ===== -->
+    <section id="design" class="panel">
+      <div class="panel-head">
+        <h2>Desain kami</h2>
+        <p>Logo, cerita di baliknya, dan warna yang kami pakai.</p>
+      </div>
+
+      <div class="story">
+        <article class="story-card tall">
+          <h3>Tanduk</h3>
+          <p>Setiap anggota punya satu hal yang paling ia kuasai, dan itu yang menjulang ke atas.</p>
+        </article>
+        <article class="story-card">
+          <h3>Surai</h3>
+          <p>Lembut tapi bersambung. Tim ini saling menopang, bukan jalan sendiri-sendiri.</p>
+        </article>
+        <article class="story-card">
+          <h3>Bintang</h3>
+          <p>Hal kecil yang bikin proyek terasa spesial.</p>
+        </article>
+      </div>
+
+      <h3 class="sub">Palet warna</h3>
+      <ul class="swatches">
+        <li><span style="background:#e9dcff"></span>Lilac</li>
+        <li><span style="background:#cdbdf5"></span>Lavender</li>
+        <li><span style="background:#d5e2ff"></span>Biru kabut</li>
+        <li><span style="background:#ffd9ec"></span>Pink muda</li>
+        <li><span style="background:#5a468f"></span>Ungu tua</li>
+      </ul>
+    </section>
+
+    <!-- ===== PRODUK ===== -->
+    <section id="produk" class="panel">
+      <div class="panel-head">
+        <h2>Produk kami</h2>
+        <p>Hasil karya yang kami buat. Ganti isinya sesuai proyekmu.</p>
+      </div>
+
+      <div class="products">
+        <article class="product">
+          <div class="thumb t1" aria-hidden="true">🌐</div>
+          <h3>Website Kelompok</h3>
+          <p>Halaman profil tim yang sedang kamu lihat ini.</p>
+          <span class="tag">Web</span>
+        </article>
+        <article class="product">
+          <div class="thumb t2" aria-hidden="true">📱</div>
+          <h3>Aplikasi</h3>
+          <p>Tulis singkat apa fungsi aplikasi kalian di sini.</p>
+          <span class="tag">App</span>
+        </article>
+        <article class="product">
+          <div class="thumb t3" aria-hidden="true">🎨</div>
+          <h3>Desain Grafis</h3>
+          <p>Logo, poster, dan materi visual buatan tim.</p>
+          <span class="tag">Desain</span>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <span>Versi 1.0</span>
+    <strong>Pony Verse</strong>
+    <span>Dibuat bersama Claude</span>
+  </footer>
+
+  <nav class="dock" aria-label="Navigasi utama">
+    <a href="#home" class="on">Home</a>
+    <a href="#design">Design</a>
+    <a href="#produk">Produk</a>
+  </nav>
+
+  <button class="up" aria-label="Kembali ke atas" type="button">↑</button>
+
+  <script>
+    const links = document.querySelectorAll('.dock a');
+    const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    sections.forEach(s => s && io.observe(s));
+
+    const up = document.querySelector('.up');
+    addEventListener('scroll', () => up.classList.toggle('show', scrollY > 500), { passive: true });
+    up.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>
